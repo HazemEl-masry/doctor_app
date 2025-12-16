@@ -62,6 +62,8 @@ dependencies:
   flutter_svg: ^2.2.3
   # A flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.3
+  # A declarative router for Flutter based on Navigation 2 supporting deep linking, data-driven routes 
+  go_router: ^17.0.1
 
 dev_dependencies:
   flutter_test:
