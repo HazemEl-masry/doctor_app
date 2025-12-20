@@ -385,10 +385,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "51555e36056541237b15b57afc31a0f53d4f9aefd9bd00873a6dc0090e54e332"
+      sha256: "48c11d0943b93b6fb29103d956ff89aafeae48f6058a3939649be2093dcff0bf"
       url: "https://pub.dev"
     source: hosted
-    version: "4.6.0"
+    version: "4.7.1"
   intl:
     dependency: "direct main"
     description:
@@ -441,10 +441,10 @@ packages:
     dependency: transitive
     description:
       name: lean_builder
-      sha256: f3ddb3b2c29285a726d739f3eaa4877a2478068f975b51231d032711efbc02d8
+      sha256: "4f3d70c34c52cc5034e8cc6f53d35aa3a32fb373b78fb4c29cf45cd1dcf06942"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.4"
+    version: "0.1.5"
   lints:
     dependency: transitive
     description:
@@ -593,10 +593,10 @@ packages:
     dependency: transitive
     description:
       name: protobuf
-      sha256: "2fcc8a202ca7ec17dab7c97d6b6d91cf03aa07fe6f65f8afbb6dfa52cc5bd902"
+      sha256: "75ec242d22e950bdcc79ee38dd520ce4ee0bc491d7fadc4ea47694604d22bf06"
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.0"
+    version: "6.0.0"
   provider:
     dependency: transitive
     description:
@@ -633,10 +633,10 @@ packages:
     dependency: "direct main"
     description:
       name: retrofit_generator
-      sha256: "7ec323f3329ad2ca0bcdc96fe02ec7f2486ecfac6cd2d035b03c398ef6f42308"
+      sha256: fed2c4e4ed6dab084c00d25c739988aa3cec1acd2b168771136188cced8d967d
       url: "https://pub.dev"
     source: hosted
-    version: "10.2.0"
+    version: "10.2.1"
   shared_preferences:
     dependency: transitive
     description:
