@@ -1,10 +1,14 @@
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/core/widgets/app_text_button.dart';
-import 'package:doctor_app/core/widgets/app_text_form_field.dart';
 import 'package:doctor_app/core/widgets/social_media_section.dart';
+import 'package:doctor_app/features/login/data/models/login_request_body.dart';
+import 'package:doctor_app/features/login/presentation/cubits/cubit/login_cubit.dart';
 import 'package:doctor_app/features/login/presentation/widgets/dont_have_an_account_widget.dart';
+import 'package:doctor_app/features/login/presentation/widgets/email_and_password.dart';
+import 'package:doctor_app/features/login/presentation/widgets/login_bloc_listener.dart';
 import 'package:doctor_app/features/login/presentation/widgets/terms_and_conditions_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,21 +19,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final formKey = GlobalKey<FormState>();
-  bool isObscureText = true;
   bool rememberMe = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(
-          top: 95.0.h,
-          // bottom: 50.0.h,
-          right: 24.0.w,
-          left: 24.0.w,
-        ),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: 95.0.h,
+            bottom: 50.0.h,
+            right: 24.0.w,
+            left: 24.0.w,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -40,31 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyles.font14GrayRegular,
               ),
               SizedBox(height: 35.0.h),
-              Form(
-                key: formKey,
-                child: Column(
-                  children: [
-                    const AppTextFormField(hintText: "Email"),
-                    SizedBox(height: 18.0.h),
-                    AppTextFormField(
-                      hintText: "Password",
-                      isObscureText: isObscureText,
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isObscureText = !isObscureText;
-                          });
-                        },
-                        icon: Icon(
-                          isObscureText
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const EmailAndPassword(),
               SizedBox(height: 18.0.h),
               Row(
                 children: [
@@ -91,7 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
               AppTextButton(
                 buttonText: "Login",
                 textStyle: TextStyles.font16WhiteSemiBold,
-                onPressed: () {},
+                onPressed: () {
+                  validateThenLogin(context);
+                },
               ),
               SizedBox(height: 35.0.h),
               const SocialMediaSection(),
@@ -99,10 +79,22 @@ class _LoginScreenState extends State<LoginScreen> {
               const TermsAndConditionsWidget(),
               SizedBox(height: 20.0.h),
               const DontHaveAnAccountWidget(),
+              const LoginBlocListener()
             ],
           ),
         ),
       ),
     );
+  }
+  
+  void validateThenLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginState(
+        LoginRequestBody(
+          email: context.read<LoginCubit>().emailEditingController.text,
+          password: context.read<LoginCubit>().passwordEditingController.text,
+        ),
+      );
+    }
   }
 }
