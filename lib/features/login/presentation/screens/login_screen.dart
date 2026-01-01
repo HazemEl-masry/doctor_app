@@ -1,7 +1,6 @@
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/core/widgets/app_text_button.dart';
 import 'package:doctor_app/core/widgets/social_media_section.dart';
-import 'package:doctor_app/features/login/data/models/login_request_body.dart';
 import 'package:doctor_app/features/login/presentation/cubits/cubit/login_cubit.dart';
 import 'package:doctor_app/features/login/presentation/widgets/dont_have_an_account_widget.dart';
 import 'package:doctor_app/features/login/presentation/widgets/email_and_password.dart';
@@ -10,7 +9,6 @@ import 'package:doctor_app/features/login/presentation/widgets/terms_and_conditi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -90,12 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void validateThenLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginState(
-        LoginRequestBody(
-          email: context.read<LoginCubit>().emailEditingController.text,
-          password: context.read<LoginCubit>().passwordEditingController.text,
-        ),
-      );
+      context.read<LoginCubit>().emitLoginState();
     }
   }
 }
