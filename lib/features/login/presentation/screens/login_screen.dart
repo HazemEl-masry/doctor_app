@@ -10,6 +10,7 @@ import 'package:doctor_app/features/login/presentation/widgets/terms_and_conditi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -79,14 +80,14 @@ class _LoginScreenState extends State<LoginScreen> {
               const TermsAndConditionsWidget(),
               SizedBox(height: 20.0.h),
               const DontHaveAnAccountWidget(),
-              const LoginBlocListener()
+              const LoginBlocListener(),
             ],
           ),
         ),
       ),
     );
   }
-  
+
   void validateThenLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
       context.read<LoginCubit>().emitLoginState(
