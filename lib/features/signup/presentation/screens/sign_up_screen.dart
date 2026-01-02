@@ -2,7 +2,7 @@ import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/core/widgets/app_text_button.dart';
 import 'package:doctor_app/core/widgets/social_media_section.dart';
 import 'package:doctor_app/core/widgets/terms_and_conditions_widget.dart';
-import 'package:doctor_app/features/login/presentation/widgets/sign_up_bloc_listener.dart';
+import 'package:doctor_app/features/signup/presentation/widgets/sign_up_bloc_listener.dart';
 import 'package:doctor_app/features/signup/presentation/cubits/cubit/signup_cubit.dart';
 import 'package:doctor_app/features/signup/presentation/widgets/already_have_an_account_widget.dart';
 import 'package:doctor_app/features/signup/presentation/widgets/sign_up_form.dart';
