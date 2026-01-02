@@ -5,7 +5,7 @@ import 'package:doctor_app/features/login/presentation/cubits/cubit/login_cubit.
 import 'package:doctor_app/features/login/presentation/widgets/dont_have_an_account_widget.dart';
 import 'package:doctor_app/features/login/presentation/widgets/email_and_password.dart';
 import 'package:doctor_app/features/login/presentation/widgets/login_bloc_listener.dart';
-import 'package:doctor_app/features/login/presentation/widgets/terms_and_conditions_widget.dart';
+import 'package:doctor_app/core/widgets/terms_and_conditions_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +19,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool rememberMe = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,7 +1,7 @@
 import 'package:doctor_app/core/helper/app_regex.dart';
 import 'package:doctor_app/core/widgets/app_text_form_field.dart';
 import 'package:doctor_app/features/login/presentation/cubits/cubit/login_cubit.dart';
-import 'package:doctor_app/features/login/presentation/widgets/password_validations.dart';
+import 'package:doctor_app/core/widgets/password_validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
