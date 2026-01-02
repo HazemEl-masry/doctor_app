@@ -3,6 +3,7 @@ import 'package:doctor_app/features/home/presentation/screens/home_screen.dart';
 import 'package:doctor_app/features/login/presentation/cubits/cubit/login_cubit.dart';
 import 'package:doctor_app/features/login/presentation/screens/login_screen.dart';
 import 'package:doctor_app/features/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:doctor_app/features/signup/presentation/cubits/cubit/signup_cubit.dart';
 import 'package:doctor_app/features/signup/presentation/screens/sign_up_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -20,7 +21,10 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: "/SignUpScreen",
-      builder: (context, state) => const SignUpScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<SignupCubit>(),
+        child: const SignUpScreen(),
+      ),
     ),
     GoRoute(
       path: "/HomeScreen",
