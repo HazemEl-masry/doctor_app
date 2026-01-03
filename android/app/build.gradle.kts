@@ -30,6 +30,22 @@ android {
         versionName = flutter.versionName
     }
 
+    flavorDimensions += "default"
+
+    productFlavors {
+        create("production") {
+            dimension = "default"
+            resValue("string", "app_name", "DocDoc Production")
+        }
+
+        create("development") {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+            resValue("string", "app_name", "DocDoc Development")
+        }
+    }
+
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
